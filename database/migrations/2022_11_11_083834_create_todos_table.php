@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(0)->comment('DEFAULT[0]:Not started, FALSE[2]: In progress, TRUE[1]: Completed');
             $table->timestamps();
         });
     }

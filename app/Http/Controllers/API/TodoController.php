@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use App\Http\Requests\TodoRequest;
+use App\Http\Controllers\Controller;
 
 class TodoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,15 +22,20 @@ class TodoController extends Controller
     {
         $todo = Todo::all();
         return response($todo, 200);
+
+        // return response()->json([
+        //     'status' => 'success',
+        //     'todo' => $todo
+        // ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\TodoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TodoRequest $request)
     {
         $todo = Todo::create($request->all());
 
@@ -35,7 +45,12 @@ class TodoController extends Controller
         //     'description' => 'required'
         // ]);
 
-        return response($todo, 200);
+        // return response($todo, 200);
+        return response()->json([
+            'status' => true,
+            'message' => "Todo created successfully.",
+            'todo' => $todo
+        ]);
     }
 
     /**
@@ -46,17 +61,21 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        return Todo::find($todo);
+        // $return = Todo::find($todo);
+
+        return response()->json([
+            'todoShow' => $todo,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\TodoRequest  $request
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(TodoRequest $request, Todo $todo)
     {
         // $todo = Todo::find($id);
         $todo->update($request->all());
@@ -64,7 +83,7 @@ class TodoController extends Controller
         // return response($todo, 200);
         return response()->json([
             'status' => true,
-            'message' => "Todo updated successfully.",
+            'message' => "Todo list updated successfully.",
             'todo' => $todo
         ]);
     }

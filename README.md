@@ -7,7 +7,7 @@
 <!-- LOGIN -->
 #### Endpoint: /api/login
 Request body:
-```json
+```
   {
     "email": "string",
     "password": "string"
@@ -42,7 +42,7 @@ Request body:
   }
 ```
 Response body:
-```json
+```
   {
     "status": "success",
     "message": "User created successfully.",
@@ -73,7 +73,7 @@ Response body:
 #### Endpoint: /api/refresh_token
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 Response body:
-```json
+```
   {
     "status": "success",
     "message": "Token refreshed successfully",
@@ -94,7 +94,7 @@ Response body:
 #### Endpoint: /api/todos
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 Response body:
-```json
+```
   [
     {
         "id": 1,
@@ -117,7 +117,7 @@ Response body:
 #### Endpoint: /api/todos
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 Request body:
-```json
+```
 {
     "title": "string",
     "description": "string",
@@ -125,7 +125,7 @@ Request body:
 }
 ```
 Response body:
-```json
+```
   {
     "message": "Todo created successfully.",
     "todo": {
@@ -142,7 +142,7 @@ Response body:
 #### Endpoint: /api/todos/6
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 Request body:
-```json
+```
 {
     "title": "string",
     "description": "string",
@@ -150,7 +150,7 @@ Request body:
 }
 ```
 Response body:
-```json
+```
   {
     "message": "Todo list updated successfully.",
     "todo": {
@@ -167,7 +167,7 @@ Response body:
 #### Endpoint: /api/todos/4
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 Response body:
-```json
+```
   {
     "todo": {
         "id": 4,
@@ -183,7 +183,7 @@ Response body:
 #### Endpoint: /api/todos/4
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 Response body:
-```json
+```
   {
     "message": "Todo deleted successfully."
   }

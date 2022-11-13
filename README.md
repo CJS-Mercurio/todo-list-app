@@ -2,7 +2,7 @@
 
 
 <!-- This is built with [Laravel 9 Framework](https://laravel.com/) -->
-## Endpoints :pushpin:
+### Endpoints :pushpin:
 
 <!-- LOGIN -->
 #### Endpoint: /api/login

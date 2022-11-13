@@ -14,7 +14,7 @@ Request body:
   }
 ```
 Response body:
-```json
+```
   {
     "status": "success",
     "message": "Logged in successfully.",
@@ -34,7 +34,7 @@ Response body:
 <!-- REGISTER -->
 #### Endpoint: /api/register
 Request body:
-```json
+```
   {
     "name": "string",
     "email": "string",
@@ -62,7 +62,7 @@ Response body:
 #### Endpoint: /api/logout
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 Response body:
-```json
+```
   {
       "status": "success",
       "message": "Logged out successfully"

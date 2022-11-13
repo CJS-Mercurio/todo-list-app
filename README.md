@@ -1,6 +1,5 @@
 # :bookmark_tabs: Todo List API with JWT Authentication :heavy_check_mark:
 
----
 
 <!-- This is built with [Laravel 9 Framework](https://laravel.com/) -->
 ## Endpoints :pushpin:

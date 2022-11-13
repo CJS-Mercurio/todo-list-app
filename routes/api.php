@@ -28,5 +28,5 @@ Route::controller(AuthController::class)->name('auth-api')->group(function () {
     Route::post('/login', 'login');
     Route::post('/register', 'register');
     Route::post('/logout', 'logout');
-    Route::post('/refresh', 'refresh');
+    Route::post('/refresh_token', 'refresh');
 });

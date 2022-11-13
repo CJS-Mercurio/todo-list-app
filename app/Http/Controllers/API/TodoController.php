@@ -47,7 +47,6 @@ class TodoController extends Controller
 
         // return response($todo, 200);
         return response()->json([
-            'status' => true,
             'message' => "Todo created successfully.",
             'todo' => $todo
         ]);
@@ -64,7 +63,7 @@ class TodoController extends Controller
         // $return = Todo::find($todo);
 
         return response()->json([
-            'todoShow' => $todo,
+            'todo' => $todo,
         ]);
     }
 
@@ -82,7 +81,6 @@ class TodoController extends Controller
 
         // return response($todo, 200);
         return response()->json([
-            'status' => true,
             'message' => "Todo list updated successfully.",
             'todo' => $todo
         ]);
@@ -100,8 +98,7 @@ class TodoController extends Controller
 
         // return response("Todo deleted successfully", 200);
         return response()->json([
-            'status' => true,
-            'message' => "Todo deleted successfully.",
+            'message' => "Todo deleted successfully."
         ]);
     }
 }

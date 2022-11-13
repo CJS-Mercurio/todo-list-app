@@ -61,6 +61,7 @@ Response body:
 <!-- LOG OUT -->
 #### Endpoint: /api/logout
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
+
 Response body:
 ```
   {
@@ -72,6 +73,7 @@ Response body:
 <!-- REFRESH BEARER TOKEN -->
 #### Endpoint: /api/refresh_token
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
+
 Response body:
 ```
   {
@@ -93,6 +95,7 @@ Response body:
 <!-- GET ALL TODOS -->
 #### Endpoint: /api/todos
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
+
 Response body:
 ```
   [
@@ -116,6 +119,7 @@ Response body:
 <!-- STORE TODO -->
 #### Endpoint: /api/todos
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
+
 Request body:
 ```
 {
@@ -141,6 +145,7 @@ Response body:
 <!-- UPDATE TODO -->
 #### Endpoint: /api/todos/6
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
+
 Request body:
 ```
 {
@@ -166,6 +171,7 @@ Response body:
 <!-- SHOW TODO -->
 #### Endpoint: /api/todos/4
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
+
 Response body:
 ```
   {
@@ -182,6 +188,7 @@ Response body:
 <!-- DELETE TODO -->
 #### Endpoint: /api/todos/4
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
+
 Response body:
 ```
   {

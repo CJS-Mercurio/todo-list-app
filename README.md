@@ -5,7 +5,7 @@
 ### Endpoints :pushpin:
 
 <!-- LOGIN -->
-#### Endpoint: /api/login
+#### Login - Endpoint: /api/login
 Request body:
 ```
   {
@@ -30,9 +30,9 @@ Response body:
     }
   }
 ```
-
+<br>
 <!-- REGISTER -->
-#### Endpoint: /api/register
+#### Register - Endpoint: /api/register
 Request body:
 ```
   {
@@ -57,9 +57,9 @@ Response body:
     }
   }
 ```
-
+<br>
 <!-- LOG OUT -->
-#### Endpoint: /api/logout
+#### Logout - Endpoint: /api/logout
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 
 Response body:
@@ -69,9 +69,9 @@ Response body:
       "message": "Logged out successfully"
   }
 ```
-
+<br>
 <!-- REFRESH BEARER TOKEN -->
-#### Endpoint: /api/refresh_token
+#### Refresh Bearer Token - Endpoint: /api/refresh_token
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 
 Response body:
@@ -91,9 +91,9 @@ Response body:
     }
   }
 ```
-
+<br>
 <!-- GET ALL TODOS -->
-#### Endpoint: /api/todos
+#### Get All Todos - Endpoint: /api/todos
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 
 Response body:
@@ -116,8 +116,9 @@ Response body:
     ...
   ]
 ```
+<br>
 <!-- STORE TODO -->
-#### Endpoint: /api/todos
+#### Create - Endpoint: /api/todos
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 
 Request body:
@@ -125,7 +126,7 @@ Request body:
 {
     "title": "string",
     "description": "string",
-    "status": "boolean" // DEFAULT[0]:Not started, FALSE[2]: In progress, TRUE[1]: Completed
+    "status": "boolean" // DEFAULT[0]: Not Started/In progress, TRUE[1]: Completed
 }
 ```
 Response body:
@@ -141,9 +142,9 @@ Response body:
     }
   }
 ```
-
+<br>
 <!-- UPDATE TODO -->
-#### Endpoint: /api/todos/6
+#### Update - Endpoint: /api/todos/6
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 
 Request body:
@@ -151,7 +152,7 @@ Request body:
 {
     "title": "string",
     "description": "string",
-    "status": "boolean" // DEFAULT[0]:Not started, FALSE[2]: In progress, TRUE[1]: Completed
+    "status": "boolean" // DEFAULT[0]: In progress, TRUE[1]: Completed
 }
 ```
 Response body:
@@ -167,9 +168,9 @@ Response body:
     }
   }
 ```
-
-<!-- SHOW TODO -->
-#### Endpoint: /api/todos/4
+<br>
+<!-- GET TODO -->
+#### Get Todo - Endpoint: /api/todos/4
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 
 Response body:
@@ -184,9 +185,9 @@ Response body:
     }
   }
 ```
-
+<br>
 <!-- DELETE TODO -->
-#### Endpoint: /api/todos/4
+#### Delete - Endpoint: /api/todos/4
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
 
 Response body:

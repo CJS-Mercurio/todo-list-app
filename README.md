@@ -30,7 +30,7 @@ Response body:
     }
   }
 ```
-<br>
+
 <!-- REGISTER -->
 #### Register - Endpoint: /api/register
 Request body:
@@ -57,7 +57,7 @@ Response body:
     }
   }
 ```
-<br>
+
 <!-- LOG OUT -->
 #### Logout - Endpoint: /api/logout
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
@@ -69,7 +69,7 @@ Response body:
       "message": "Logged out successfully"
   }
 ```
-<br>
+
 <!-- REFRESH BEARER TOKEN -->
 #### Refresh Bearer Token - Endpoint: /api/refresh_token
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
@@ -91,7 +91,7 @@ Response body:
     }
   }
 ```
-<br>
+
 <!-- GET ALL TODOS -->
 #### Get All Todos - Endpoint: /api/todos
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
@@ -116,7 +116,7 @@ Response body:
     ...
   ]
 ```
-<br>
+
 <!-- STORE TODO -->
 #### Create - Endpoint: /api/todos
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
@@ -142,7 +142,7 @@ Response body:
     }
   }
 ```
-<br>
+
 <!-- UPDATE TODO -->
 #### Update - Endpoint: /api/todos/6
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
@@ -168,7 +168,7 @@ Response body:
     }
   }
 ```
-<br>
+
 <!-- GET TODO -->
 #### Get Todo - Endpoint: /api/todos/4
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:
@@ -185,7 +185,7 @@ Response body:
     }
   }
 ```
-<br>
+
 <!-- DELETE TODO -->
 #### Delete - Endpoint: /api/todos/4
 Requires __JWT Authentication Bearer Token__ :heavy_check_mark:

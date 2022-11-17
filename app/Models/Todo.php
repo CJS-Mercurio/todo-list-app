@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Todo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'status'];
+    protected $fillable = ['user_id', 'title', 'description', 'status'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

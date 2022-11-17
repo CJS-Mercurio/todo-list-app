@@ -6,6 +6,8 @@ use App\Models\Todo;
 use Illuminate\Http\Request;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TodoResource;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
@@ -20,13 +22,11 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todo = Todo::all();
-        return response($todo, 200);
-
-        // return response()->json([
-        //     'status' => 'success',
-        //     'todo' => $todo
-        // ]);
+        return TodoResource::collection(
+            Todo::where('user_id', Auth::user()->id)->get()
+        );
+        // $todo = Todo::where('user_id', Auth::user()->id)->get();
+        // return response($todo, 200);
     }
 
     /**
@@ -37,19 +37,14 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request)
     {
-        $todo = Todo::create($request->all());
-
-        // Moved to TodoRequest to handle the validation
-        // $data = $request->validate([
-        //     'title' => 'required',
-        //     'description' => 'required'
-        // ]);
-
-        // return response($todo, 200);
-        return response()->json([
-            'message' => "Todo created successfully.",
-            'todo' => $todo
+        $todo = Todo::create([
+            'user_id' => Auth::user()->id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'status' => $request->status,
         ]);
+
+        return new TodoResource($todo);
     }
 
     /**
@@ -60,11 +55,12 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        // $return = Todo::find($todo);
-
-        return response()->json([
-            'todo' => $todo,
-        ]);
+        if (Auth::user()->id !== $todo->user_id) {
+            return response()->json([
+                'message' => "You are not authorized to make this request."
+            ], 403);
+        }
+        return new TodoResource($todo);
     }
 
     /**
@@ -76,14 +72,15 @@ class TodoController extends Controller
      */
     public function update(TodoRequest $request, Todo $todo)
     {
-        // $todo = Todo::find($id);
+        if (Auth::user()->id !== $todo->user_id) {
+            return response()->json([
+                'message' => "You are not authorized to make this request."
+            ], 403);
+        }
+
         $todo->update($request->all());
 
-        // return response($todo, 200);
-        return response()->json([
-            'message' => "Todo list updated successfully.",
-            'todo' => $todo
-        ]);
+        return new TodoResource($todo);
     }
 
     /**
@@ -94,9 +91,15 @@ class TodoController extends Controller
      */
     public function destroy(Todo $todo)
     {
+        if (Auth::user()->id !== $todo->user_id) {
+            return response()->json([
+                'message' => "You are not authorized to make this request."
+            ], 403);
+        }
+
         $todo->delete();
 
-        // return response("Todo deleted successfully", 200);
+        // return response(null, 203);
         return response()->json([
             'message' => "Todo deleted successfully."
         ]);

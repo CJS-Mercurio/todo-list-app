@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->longText('description');
             $table->boolean('status')->default(0)->comment('DEFAULT[0]:Not started, FALSE[2]: In progress, TRUE[1]: Completed');

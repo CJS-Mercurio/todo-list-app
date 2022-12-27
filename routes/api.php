@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\TodoController;
+use App\Http\Controllers\API\UserSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,10 @@ Route::controller(AuthController::class)->name('auth-api')->group(function () {
     Route::post('/logout', 'logout');
     Route::post('/refresh_token', 'refresh');
     Route::put('/updateProfile/{id}', 'update-profile');
+});
+
+// User Setting API Routes
+Route::controller(UserSettingController::class)->prefix('setting')->group(function () {
+    Route::put('/update-profile', 'updateProfile');
+    Route::put('/update-password', 'updatePassword');
 });

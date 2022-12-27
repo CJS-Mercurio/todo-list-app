@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->longText('description');
-            $table->boolean('status')->default(0)->comment('DEFAULT[0]:Not started, FALSE[2]: In progress, TRUE[1]: Completed');
+            $table->boolean('status')->default(0)->comment('DEFAULT[0]: In progress, TRUE[1]: Completed');
             $table->timestamps();
         });
     }

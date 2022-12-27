@@ -15,33 +15,6 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
-    public function updateProfile(Request $request, User $user)
-    {
-        // Validating Credentials
-        $request->validate([
-            'name' => 'required|string|max:60',
-            'email' => 'required|string|max:120|unique:users',
-        ]);
-
-        // $credentials = $request->only('email', 'password');
-
-        // Authenticating User
-        $currentUser = Auth::user();
-        if (!$currentUser->id == $user->id) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized.'
-            ], 401);
-        }
-
-        $user->update($request->all());
-        return response()->json([
-            'status' => 'success',
-            'message' => 'User profile updated successfully.',
-            'user' => $user,
-        ]);
-    }
-
     public function login(Request $request) 
     {
         $request->validate([
